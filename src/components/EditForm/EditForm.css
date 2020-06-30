@@ -1,0 +1,45 @@
+.editForm input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    max-width: 270px;
+    outline: none !important;
+    transition: all 0.3s;
+    background: transparent;
+}
+.editForm input:focus {
+    border-bottom: 1px solid #aaaaaa !important ;
+}
+.editForm input::placeholder {
+    opacity: 0.6;
+}
+.editForm .buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.editForm .buttons .iconWrap {
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.editForm .iconWrap.check {
+    border: 1px solid rgb(125, 177, 125);
+    box-shadow: none;
+}
+.editForm .iconWrap.check i {
+    color: rgb(125, 177, 125);
+}
+
+.editForm .iconWrap.close {
+    box-shadow: none;
+    border: 1px solid rgb(192, 119, 119);
+}
+.editForm .iconWrap.close i {
+    color: rgb(192, 119, 119);
+}
