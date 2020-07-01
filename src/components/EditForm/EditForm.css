@@ -43,3 +43,12 @@
 .editForm .iconWrap.close i {
     color: rgb(192, 119, 119);
 }
+
+.editForm .formError {
+    font-size: 12px;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    margin: 10px 0;
+    color: red;
+}

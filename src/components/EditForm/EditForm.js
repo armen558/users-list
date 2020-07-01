@@ -10,7 +10,8 @@ class EditForm extends React.Component {
             name: '',
             url: '',
             imgUrl: ''
-        }
+        },
+        isFormValid: true
     }
 
     componentDidMount () {
@@ -21,6 +22,7 @@ class EditForm extends React.Component {
                 imgUrl: this.props.imgUrl || ''
             }
         })
+        
     }
 
     handleInputChange = (event, inputType) => {
@@ -28,6 +30,10 @@ class EditForm extends React.Component {
             formData:{
                 ...this.state.formData,
                 [inputType]: event.target.value
+            }
+        }, () => {
+            if (validateForm(this.state.formData)) {
+                this.setState({isFormValid: true})
             }
         })
     }
@@ -38,6 +44,11 @@ class EditForm extends React.Component {
         if (validateForm(this.state.formData)) {
             this.props.handleSubmit(this.props.id, this.state.formData);
             this.props.formClose();
+        }
+        if (validateForm(this.state.formData)) {
+            this.setState({isFormValid: true})
+        } else {
+            this.setState({isFormValid: false})
         }
 
     }
@@ -52,6 +63,7 @@ class EditForm extends React.Component {
                     <span onClick={this.handleFormSubmit} className="iconWrap check"><i className="check icon"></i></span>
                     <span className="iconWrap close" onClick={this.props.formClose}><i className="times icon"></i></span>
                 </div>
+                {this.state.isFormValid ? null : <p className="formError">Please fill all fields</p>}
             </form>
         )
     }
